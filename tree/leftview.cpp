@@ -8,13 +8,14 @@ struct node{
  	struct node *right;
  };
  
-void printInOrder(node *root){
+void printleftnode(node *root){
 	if(root){
 		printInOrder(root->left);
-		cout<<root->data;
-		printInOrder(root->right);
+		cout<<root->data<<" ";
+//		printInOrder(root->right);
 
 	}
+	
 
 	}
 	
@@ -37,7 +38,7 @@ int main(){
  root->left->right=newnode(7);
  root->left->left=newnode(4);
  
- printInOrder(root);
+ printleftnode(root);
  return 0;
 }
 
