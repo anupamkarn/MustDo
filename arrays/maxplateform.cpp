@@ -34,8 +34,9 @@ int main(){
 	 	for(int k=0; k<j; k++){
 	 	if(a[k]<=a[j]&&a[j]<=b[k]){
 	 	plateform++;
-		 
+	 	break;
 		 }
+		 
 		 }
 	 }
 	 cout<<plateform<<endl;

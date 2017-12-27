@@ -3,24 +3,24 @@
 using namespace std;
 
 int main(){
-	vector<vector <int> > a(3);
-	for(int j=0; j<3; j++){
-		for(int k=0; k<3; k++){
-			int ele;
-			cin>>ele;
-			a[j].push_back(ele);
-		}
-	}
-	
-	for(int j=0; j<3; j++){
-		for(int k=0; k<3; k++){
-			
-			cout<<a[j][k]<<" ";
-		}
-		cout<<endl;
-	}
-	
-	
- return 0;
+    int T;
+    cin>>T;
+    for(int i=0; i<T; i++){
+        int M,N,z,num,sum1=0,sum2=0,x;
+        cin>>N>>M;
+        vector<vector <char> > v(N, vector<char> (M));
+        vector<int> c;
+        for(int j=0; j<N; j++){
+            for(int k=0; k<M; k++){
+                cin>>v[j][k];
+            }
+        }
+        
+        for(int j=0; j<N; j++){
+            for(int k=0; k<M; k++){
+                cout<<v[j][k]<<" ";
+            }
+            cout<<endl;
+        }
+    }
 }
-

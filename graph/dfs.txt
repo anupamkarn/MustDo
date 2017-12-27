@@ -1,0 +1,3 @@
+E:\algorithms\graph\bfs.cpp	In function 'int main()':
+33	18	E:\algorithms\graph\bfs.cpp	[Error] a function-definition is not allowed here before '{' token
+59	1	E:\algorithms\graph\bfs.cpp	[Error] expected '}' at end of input

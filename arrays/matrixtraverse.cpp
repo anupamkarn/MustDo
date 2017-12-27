@@ -24,7 +24,7 @@ int main() {
     for(int j=a; j<b-1; j++){
         final.push_back(matrix[j][d-1]);
     }
-    a++;
+   a++;
     
     for(int j=d-1; j>=a; j--){
     	final.push_back(matrix[b-1][j]);
@@ -33,6 +33,7 @@ int main() {
 	for(int j=b-1; j>=c; j--){
     	final.push_back(matrix[j][a]);
 	}
+	
     }
 	/*for(int j=c; j>0; j--){
         final[n]=matrix[c][j];
