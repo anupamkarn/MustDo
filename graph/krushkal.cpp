@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 
-using namespace std;
-
+//using namespace std;
 using namespace std;
 const int MAX = 5;
 int id[MAX], nodes, edges;
