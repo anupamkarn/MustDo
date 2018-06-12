@@ -1,73 +1,83 @@
+/*
+// Sample code to perform I/O:
+
+cin >> name;                            // Reading input from STDIN
+cout << "Hi, " << name << ".\n";        // Writing output to STDOUT
+
+// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+*/
+
+// Write your code here
 #include<bits/stdc++.h>
 
-//using namespace std;
 using namespace std;
-const int MAX = 5;
-int id[MAX], nodes, edges;
-pair <long long, pair<int, int> > p[MAX];
 
-void initialize()
-{
-    for(int i = 0;i < MAX;++i)
-        id[i] = i;
-}
+long long size[10001],arr[10001]; 
+pair<long long, pair<long long,long long> > a[100000];
+long long cost=0;
+long long N,M;
 
-int root(int x)
-{
-    while(id[x] != x)
-    {
-        id[x] = id[id[x]];
-        x = id[x];
+void initial(long long arr[],long long N){
+    for(long long i=0; i<=N; i++){  
+        arr[i]=i;
+        size[i]=1;
     }
-    return x;
 }
 
-void union1(int x, int y)
-{
-    int p = root(x);
-    int q = root(y);
-    id[p] = id[q];
-}
-
-long long kruskal(pair<long long, pair<int, int> > p[])
-{
-    int x, y;
-    long long cost, minimumCost = 0;
-    for(int i = 0;i < edges;++i)
-    {
-        // Selecting edges one by one in increasing order from the beginning
-        x = p[i].second.first;
-        y = p[i].second.second;
-        cost = p[i].first;
-        // Check if the selected edge is creating a cycle or not
-        cout<<root(x)<<" "<<root(y)<<endl;
-        if(root(x) != root(y))
-        {
-            minimumCost += cost;
-            union1(x, y);
-        }    
+int root(long long arr[], long long a){
+    
+    while(arr[a]!=a){
+        a=arr[a];
     }
-    return minimumCost;
+    return a;
+
+}
+
+void edge (long long arr[], long long size[], long long a, long long b){
+    
+    long long roota = root(arr,a);
+    long long rootb = root(arr,b);
+    //cout<<roota<<" "<<rootb;
+    if(size[roota]>size[rootb]){
+        arr[rootb]=arr[roota];
+        size[roota]+=size[rootb];
+        //size[rootb]=0;
+    }
+    else{
+        arr[roota]=arr[rootb];
+        size[rootb]+=size[roota];
+        //size[roota]=0;
+    }
+    
+}
+
+int krushkal(pair<long long , pair<long long , long long> > a[]){
+    for(long long i=0; i<M; i++){
+        long long weight = a[i].first;
+        long long x = a[i].second.first;
+        long long y = a[i].second.second;
+        if(root(arr,x)!=root(arr,y)){
+            edge(arr, size, x, y);
+            cost+=weight;
+        }
+    }
+    return cost;
 }
 
 int main(){
-	
-	int x, y;
-    long long weight, cost, minimumCost;
-    initialize();
-    cin >> nodes >> edges;
-    for(int i = 0;i < edges;++i)
-    {
-        cin >> x >> y >> weight;
-        p[i] = make_pair(weight, make_pair(x, y));
+    
+    cin>>N>>M;
+    initial(arr,N);
+    long long x,y,weight;
+    for(long long i=0; i<M; i++){
+        cin>>x>>y>>weight;
+        a[i]= make_pair(weight, make_pair(x,y));
     }
-    // Sort the edges in the ascending order
-    sort(p, p + edges);
-    minimumCost = kruskal(p);
-    for(int i=0; i<5; i++)
-    	cout<<id[i]<<endl;
-    cout << minimumCost << endl;
-
- return 0;
+    
+    sort(a, a+M);
+    cost = krushkal(a);
+    cout<<cost<<endl;
+    
+    
+   return 0;
 }
-
