@@ -30,5 +30,7 @@ int main(){
   	p.push_back(4);
   	d.push_back(p);
   	cout<<d[0][0];
-    
+	
+	    
+
 }
