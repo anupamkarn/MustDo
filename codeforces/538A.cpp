@@ -36,7 +36,9 @@ int main(){
 	else if(x<a){
 		if(y>b){
 			if((a-x)>=(y-b)){
-				cout<<"YES";
+				if(z<=c||(a-x)-(y-b)>=(z-c))
+					cout<<"YES";
+				else cout<<"NO";	
 			}
 			else{
 				cout<<"NO";
