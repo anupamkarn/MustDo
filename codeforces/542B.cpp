@@ -20,12 +20,12 @@ int main(){
 	} 
 //	for(int i=1; i<=n; i++)
 //		cout<<mp1[i]<<endl;
-	long count1=mp1[1]-1,count2=mp2[1]-1;
-	for(long i=2; i<=n; i++){
-		count1+=abs(mp1[i]-mp1[i-1]);
-		count2+=abs(mp2[i]-mp2[i-1]);
+	long count1=0;
+	for(long i=1; i<=n; i++){
+		count1+=min(abs(mp1[i]-mp1[i-1])+abs(mp2[i]-mp2[i-1]),abs(mp1[i]-mp2[i-1])+abs(mp2[i]-mp1[i-1]));
+		//count2+=min(abs(mp2[i]-mp2[i-1]);
 	}
-	cout<<count1+count2<<endl;
+	cout<<count1-2<<endl;
 
  	return 0;
 }
