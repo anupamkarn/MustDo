@@ -1,3 +1,6 @@
+//Modified finding Diameter approach (applied new recursive traversal basically modified postorder traversal), pass root in function maxPathSum 
+//(L2L) : leaf to leaf 
+
 int maxi=INT_MIN;
 int traverse(Node* root){
     if(root==NULL){
