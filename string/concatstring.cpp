@@ -24,7 +24,7 @@ int main(){
 		}
 	}
 	if(str.size()!=n)
-		final=final+str;
+		final.append(str);
 	cout<<final<<endl;
 	return 0;
 }
