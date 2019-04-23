@@ -27,7 +27,7 @@ int main(){
             s = to_string(a[i]);
             v.push_back(s);
         }
-        sort(v.begin(),v.end());
+        sort(v.begin(),v.end(),myCompare);
         
         for(int i=0; i<n; i++){
             cout<<v[i];
